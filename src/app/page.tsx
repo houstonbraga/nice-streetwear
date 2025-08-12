@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
+const page = () => {
+  return <h1>ola mundo</h1>
+}
 
-const Page = () => {
-  return <Button>Clique aqui</Button>;
-};
-
-export default Page;
+export default page
