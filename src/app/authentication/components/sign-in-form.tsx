@@ -1,7 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -22,6 +24,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/client";
 
 const formSchema = z.object({
   email: z.email("Email inválido."),
@@ -33,6 +36,7 @@ const formSchema = z.object({
 type formValues = z.infer<typeof formSchema>;
 
 const SignIn = () => {
+  const router = useRouter();
   const form = useForm<formValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,9 +45,31 @@ const SignIn = () => {
     },
   });
 
-  const onSubmit = (values: formValues) => {
-    console.log("Valores enviados✅");
-    console.log(values);
+  const onSubmit = async (values: formValues) => {
+    await authClient.signIn.email({
+      email: values.email,
+      password: values.password,
+      fetchOptions: {
+        onSuccess() {
+          router.push("/");
+        },
+        onError(ctx) {
+          if(ctx.error.code === "USER_NOT_FOUND") {
+            toast.error("Email não encontrado.")
+            return form.setError("email", {
+              message: "Email não encontrado."
+            })
+          }
+          if(ctx.error.code === "INVALID_EMAIL_OR_PASSWORD") {
+            toast.error("Email ou senha inválidos.")
+            return form.setError("email", {
+              message: "Email ou senha inválidos."
+            })
+          }
+          toast.error(ctx.error.message)
+        },
+      },
+    });
   };
 
   return (
@@ -76,7 +102,11 @@ const SignIn = () => {
                   <FormItem>
                     <FormLabel>Senha</FormLabel>
                     <FormControl>
-                      <Input type="password" placeholder="Digite sua senha" {...field} />
+                      <Input
+                        type="password"
+                        placeholder="Digite sua senha"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
