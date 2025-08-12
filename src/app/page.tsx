@@ -1,5 +1,11 @@
+import { Button } from "@/components/ui/button"
+
 const page = () => {
-  return <h1>ola mundo</h1>
+  return (
+    <Button>
+      Ola Nice
+    </Button>
+  )
 }
 
 export default page
