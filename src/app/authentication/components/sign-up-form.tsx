@@ -61,8 +61,8 @@ const SignUp = () => {
     <>
       <Card>
         <CardHeader>
-          <CardTitle>Login</CardTitle>
-          <CardDescription>Faça login para entrar</CardDescription>
+          <CardTitle>Cadastre-se</CardTitle>
+          <CardDescription>Faça uma conta para continuar</CardDescription>
         </CardHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
