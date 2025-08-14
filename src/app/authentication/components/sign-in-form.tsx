@@ -74,7 +74,7 @@ const SignIn = () => {
 
   return (
     <>
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Login</CardTitle>
           <CardDescription>Faça login para entrar</CardDescription>

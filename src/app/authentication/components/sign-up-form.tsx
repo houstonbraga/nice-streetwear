@@ -85,7 +85,7 @@ const SignUp = () => {
 
   return (
     <>
-      <Card>
+      <Card className="w-full">
         <CardHeader>
           <CardTitle>Cadastre-se</CardTitle>
           <CardDescription>Faça uma conta para continuar</CardDescription>

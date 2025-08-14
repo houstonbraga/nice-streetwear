@@ -1,11 +1,12 @@
-import { Button } from "@/components/ui/button"
+import Header from "@/components/common/Header"
 
-const page = () => {
+
+const Home = () => {
   return (
-    <Button>
-      Ola Nice
-    </Button>
+    <>
+      <Header />
+    </>
   )
 }
 
-export default page
+export default Home
