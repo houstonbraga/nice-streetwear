@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import BrandsList from "@/components/brands/brands-list";
 import Header from "@/components/common/Header";
 import ProductsList from "@/components/common/products-list";
 import { db } from "@/db";
@@ -25,6 +26,8 @@ const Home = async () => {
           />
         </div>
 
+        <BrandsList />
+
         <ProductsList products={products} title="Mais vendidos" />
 
         <div className="px-5">
@@ -37,6 +40,8 @@ const Home = async () => {
             className="h-full w-full"
           />
         </div>
+
+        <ProductsList products={products} title="Novos Produtos" />
       </div>
     </>
   );
