@@ -1,4 +1,8 @@
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+
 import Header from "@/components/common/Header";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import SignIn from "./components/sign-in-form";
@@ -21,6 +25,11 @@ const Authentication = async () => {
             <SignUp />
           </TabsContent>
         </Tabs>
+        <Button asChild className="h-10 w-10 rounded-full">
+          <Link href="/">
+            <ArrowLeft />
+          </Link>
+        </Button>
       </div>
     </>
   );
