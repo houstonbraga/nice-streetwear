@@ -1,0 +1,15 @@
+export const LINKS = [
+  { id: 1, name: "Sobre" },
+  { id: 2, name: "Contatos" },
+  { id: 3, name: "Suporte" },
+  { id: 4, name: "Materias" },
+  { id: 5, name: "Entregas" },
+  { id: 6, name: "Devolução" },
+  { id: 7, name: "Privacidade" },
+  { id: 8, name: "Tênis" },
+  { id: 9, name: "Camisetas" },
+  { id: 10, name: "Acessórios" },
+  { id: 11, name: "Calças" },
+  { id: 12, name: "Jaquetas" },
+  { id: 13, name: "Bermudas" },
+];
