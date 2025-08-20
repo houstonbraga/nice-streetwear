@@ -50,9 +50,9 @@ const Header = () => {
                     </Avatar>
                     <div className="flex flex-col">
                       <h2 className="font-bold">{session?.user?.name}</h2>
-                      <span className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-500">
                         {session?.user?.email}
-                      </span>
+                      </p>
                     </div>
                   </div>
                   <Button

@@ -7,9 +7,9 @@ import { productTable, productVariantTable } from "@/db/schema";
 import { formatCentsToBRL } from "@/helpers/money";
 
 interface ProductItemProps {
-  product: typeof productTable.$inferSelect & {
+  product: (typeof productTable.$inferSelect & {
     variants: (typeof productVariantTable.$inferSelect)[];
-  };
+  });
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
